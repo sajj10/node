@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <%- include('./partials/head') %>
+        <title>Homepage</title>
+
+    </head>
+    <body>
+        <%- include('./partials/nav') %> <%= JSON.stringify(user)%>
+        
+<div class="container mt-3">
+    <div class="row row-cols-4">
+    <% blogs.forEach(blog => { %>
+        <div class="col">
+        <div class="card mt-3 col" style="width: 18rem;">
+            <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <!-- <p class="card-text"></p> -->
+              <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+            </div>
+        </div>
+          </div>
+    <% }) %>
+</div>
+</div>
+
+        <%- include('./partials/scripts') %>
+
+    </body>
+</html>
